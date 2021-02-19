@@ -9,6 +9,7 @@
 }
 
 .App_container {
+    margin-top: 20px;
     width: 700px !important;
     flex-direction: column;
     /* background-color: turquoise; */
@@ -20,6 +21,7 @@
 
 .container-input-section {
     width: 90%;
+    margin: 0 auto;
     display: flex;
     justify-content: space-around;
 }
@@ -58,12 +60,15 @@
 }
 .todo{
     width: 60%;
-    overflow: hidden !important;
+    /* overflow: auto !important; */
+    /* border: 1px solid black; */
+    word-wrap: break-word;
+    line-height: 20px !important;
+    height: 100%;
 }
 
 .delete-btn {
-    border: 1px solid blue;
-    background-color: blueviolet;
+    
     padding: 7px 20px;
 
 }

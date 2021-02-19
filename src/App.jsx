@@ -1,15 +1,18 @@
 import React from "react";
+// import Login from "./Login"
+// import Logout from "./Logout"
 import { useState, useRef } from "react";
-import { FiEdit2 } from "react-icons/fi"
-import { AiFillDelete } from "react-icons/ai"
-import { Button, TextField, Card, IconButton, Typography } from "@material-ui/core"
+import RenderTodo from "./RenderTodo"
+
+import { Button, TextField, Card } from "@material-ui/core"
 import "./App.css";
 
 function App() {
   const input = useRef();
   const [todos, setTodos] = useState([]);
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = e => {
     if (!input.current.value) {
       alert("Can't leave the field empty!");
       e.preventDefault();
@@ -19,19 +22,12 @@ function App() {
     setTodos([...todos, input.current.value]);
     input.current.value = "";
   };
-  const handleDelete = (index) => {
-    var newList = todos;
-    newList.splice(index, 1);
-    setTodos([...newList]);
-  };
-  const handleEdit = (todo, index) => {
-    input.current.value = todo;
-    handleDelete(index);
-  };
-
+  
   return (
     <div className="App">
       <div className="App_container">
+      {/* <Login /> */}
+      {/* <Logout /> */}
         <form className="container-input-section" onSubmit={handleSubmit}>
           <TextField
             className="input"
@@ -47,15 +43,7 @@ function App() {
         <br /><br />
         <Card raised="true" className="todos">
           {todos.map((todo, idx) => (
-            <div className="todo-div" key={idx}>
-              <Typography variant="overline" className="todo">{todo}</Typography>
-              <IconButton color="primary" onClick={() => handleEdit(todo, idx)} className="edit-btn">
-                  <FiEdit2 />
-              </IconButton>
-              <IconButton color="secondary" onClick={() => handleDelete(idx)} className="delete-btn">
-                <AiFillDelete />
-              </IconButton>
-            </div>
+            <RenderTodo todo={todo} idx={idx} input={input} todos={todos} setTodos={setTodos} />
           ))}
         </Card>
       </div>
