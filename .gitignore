@@ -3,10 +3,11 @@
 # dependencies
 /node_modules
 /.pnp
+package.json
 .pnp.js
 
-Login
-Logout
+src/Login.jsx
+src/Logout.jsx
 
 # testing
 /coverage
