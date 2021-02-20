@@ -6,7 +6,7 @@ function RenderTodo(props) {
     const [isDone, setIsDone] = useState(false)
 
     const handleDelete = (index) => {
-        var newList = props.todos;
+        var newList = props.todos;  
         newList.splice(index, 1);
         props.setTodos([...newList]);
       };
